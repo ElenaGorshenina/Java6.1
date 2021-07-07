@@ -2,19 +2,22 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    public long totalAmount(long[] sales) {
-        long result = 0;
+    public long getResult(long[] sales, long result) {
         for (long sale : sales) {
             result += sale;
         }
         return result;
     }
 
+    public long totalAmount(long[] sales) {
+        long result = 0;
+        result = getResult(sales, result);
+        return result;
+    }
+
     public long averageAmount(long[] sales) {
         long result = 0;
-        for (long sale : sales) {
-            result += sale;
-        }
+        result = getResult(sales, result);
         result = result / sales.length;
         return result;
     }
@@ -58,10 +61,7 @@ public class StatsService {
     public long averageAmountMin(long[] sales) {
         long result = 0;
         int averageAmountMin = 0;
-        for (long sale : sales) {
-            result += sale;
-        }
-        result = result / sales.length;
+        result = averageAmount(sales);
         for (long sale : sales) {
             if (sale < result) {
                 averageAmountMin += 1;
@@ -73,10 +73,7 @@ public class StatsService {
     public long averageAmountMax(long[] sales) {
         long result = 0;
         int averageAmountMax = 0;
-        for (long sale : sales) {
-            result += sale;
-        }
-        result = result / sales.length;
+        result = averageAmount(sales);
         for (long sale : sales) {
             if (sale > result) {
                 averageAmountMax += 1;

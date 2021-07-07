@@ -22,7 +22,6 @@ public class StatsServiceTest {
 
     @org.junit.jupiter.api.Test
     void monthMaxSale  () {
-        StatsService service = new StatsService();
         long expected = 8;
         long actual = service.monthMaxSale(sales);
         assertEquals(expected, actual);
@@ -30,7 +29,6 @@ public class StatsServiceTest {
 
     @org.junit.jupiter.api.Test
     void monthMinSale  () {
-        StatsService service = new StatsService();
         long expected = 9;
         long actual = service.monthMinSale(sales);
         assertEquals(expected, actual);
